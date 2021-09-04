@@ -23,7 +23,8 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                //todo: alterar rota fixa para rota específica do usuário do fluxo
+                return redirect('cores');
             }
         }
 

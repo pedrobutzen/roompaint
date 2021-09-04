@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes([
+    'register' => false, 
+    'reset' => false,
+    'confirm' => false,
+    'verify' => false
+]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/cores', [App\Http\Controllers\HomeController::class, 'index'])->name('cores');
+    Route::get('/comodos', [App\Http\Controllers\HomeController::class, 'index'])->name('comodos');
+    Route::get('/estimativa', [App\Http\Controllers\HomeController::class, 'index'])->name('estimativa');
+});
