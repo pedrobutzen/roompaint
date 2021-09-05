@@ -1,7 +1,7 @@
 .stepper {
     .step {
         align-items: center;
-        color: #b2b2b2;
+        color: $grey;
         display: flex;
         font-size: 14px;
         margin: 0 10px;
@@ -9,7 +9,7 @@
         .circle {
             align-items: center;
             border-radius: 27px;
-            border: solid 1px #b2b2b2;
+            border: solid 1px $grey;
             display: inline-flex;
             height: 27px;
             justify-content: center;
@@ -22,11 +22,11 @@
         }
 
         &.active {
-            color: #707070;
+            color: $dark-grey;
 
             .circle {
-                border: solid 1px #707070;
-                background-color: #007bff;
+                border: solid 1px $dark-grey;
+                background-color: $blue;
                 color: #fff;
             }
 

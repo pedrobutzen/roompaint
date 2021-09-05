@@ -1,3 +1,58 @@
 #app {
+    color: $dark-grey;
 
+    main {
+        padding: 40px 0;
+
+        .title {
+          font-size: 22px;
+          font-weight: bold;
+          margin-bottom: 65px;
+          text-align: center;
+        }
+
+        .page-info {
+            margin-bottom: 40px;
+        }
+
+        p {
+            font-size: 14px;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        section {
+            padding-bottom: 35px;
+            padding-right: 55px;
+
+            form {
+                input {
+                    border-radius: 0;
+                    border: solid 1px $dark-grey;
+                }
+
+                .btn-wrapper {
+                    margin-top: 60px;
+
+                    .btn-primary {
+                        background-color: $dark-blue;
+                        border-radius: 0;
+                        border: solid 1px $dark-grey;
+                        color: #fff;
+                        font-size: 16px;
+                        font-weight: bold;
+                        padding: 10px 15px;
+                    }
+                }
+            }
+        }
+
+        aside {
+            border-left: solid 1px $grey;
+            padding: 0 25px;
+        }
+    }
 }
