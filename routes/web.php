@@ -24,7 +24,7 @@ Auth::routes([
     'verify' => false
 ]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/cores', [App\Http\Controllers\HomeController::class, 'index'])->name('cores');
