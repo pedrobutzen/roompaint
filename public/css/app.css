@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap);
 @charset "UTF-8";
 /*!
  * Bootstrap v5.1.0 (https://getbootstrap.com/)
@@ -48,7 +48,7 @@
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
   --bs-body-rgb: 33, 37, 41;
-  --bs-font-sans-serif: "Nunito", sans-serif;
+  --bs-font-sans-serif: "Roboto", sans-serif;
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --bs-body-font-family: var(--bs-font-sans-serif);
@@ -11272,4 +11272,42 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+.stepper .step {
+  align-items: center;
+  color: #b2b2b2;
+  display: flex;
+  font-size: 14px;
+  margin: 0 10px;
+}
+.stepper .step .circle {
+  align-items: center;
+  border-radius: 27px;
+  border: solid 1px #b2b2b2;
+  display: inline-flex;
+  height: 27px;
+  justify-content: center;
+  line-height: 27px;
+  width: 27px;
+}
+.stepper .step .label {
+  margin-left: 5px;
+}
+.stepper .step.active {
+  color: #707070;
+}
+.stepper .step.active .circle {
+  border: solid 1px #707070;
+  background-color: #007bff;
+  color: #fff;
+}
+.stepper .step.active .label {
+  font-weight: bold;
+}
+.stepper .line {
+  flex: 1 0 32px;
+  min-width: 50px;
+  min-height: 1px;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.15);
 }
