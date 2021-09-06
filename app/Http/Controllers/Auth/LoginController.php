@@ -52,6 +52,6 @@ class LoginController extends Controller
         Auth::login($user);
 
         //todo: alterar rota fixa para rota específica do usuário do fluxo
-        return redirect()->route('cores');
+        return redirect()->route('colors.index');
     }
 }

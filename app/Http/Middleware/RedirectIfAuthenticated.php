@@ -24,7 +24,7 @@ class RedirectIfAuthenticated
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
                 //todo: alterar rota fixa para rota específica do usuário do fluxo
-                return redirect('cores');
+                return redirect(route('colors.index'));
             }
         }
 

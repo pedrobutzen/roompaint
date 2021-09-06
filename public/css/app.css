@@ -11313,7 +11313,7 @@ textarea.form-control-lg {
   padding-bottom: 35px;
   padding-right: 55px;
 }
-#app main section form input,
+#app main section form input:not([type=submit]),
 #app main section form select {
   border-radius: 0;
   border: solid 1px #707070;
@@ -11378,6 +11378,17 @@ textarea.form-control-lg {
   margin-bottom: 5px;
 }
 
+.flash-alert {
+  border-radius: 0;
+  bottom: 30px;
+  margin-left: 30px;
+  position: absolute;
+  right: 30px;
+}
+.flash-alert button {
+  padding: 16px;
+}
+
 .stepper .step {
   align-items: center;
   color: #b2b2b2;
@@ -11422,16 +11433,16 @@ textarea.form-control-lg {
   max-width: 400px;
 }
 
-.page-cores .form-cores input[name=cor] {
+.page-colors .form-colors input:not([type=submit]) {
   width: 100%;
   max-width: 200px;
 }
 
-.page-comodos .form-comodos .middle {
+.page-rooms .form-rooms .middle {
   margin-top: 15px;
   margin-bottom: 35px;
 }
-.page-comodos .form-comodos .room {
+.page-rooms .form-rooms .room {
   align-items: center;
   border: solid 10px #e8e8e8;
   display: flex;
@@ -11439,7 +11450,7 @@ textarea.form-control-lg {
   justify-content: center;
   width: 100%;
 }
-.page-comodos .form-comodos input[name=cor] {
+.page-rooms .form-rooms input[name=cor] {
   width: 100%;
   max-width: 200px;
 }

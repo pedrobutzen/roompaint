@@ -9,8 +9,9 @@
 @import '~bootstrap/scss/bootstrap';
 
 @import '_layout-app';
+@import '_flash-alert';
 @import 'components/_stepper';
 @import '_page-login';
-@import '_page-cores';
 @import '_page-comodos';
+@import '_page-colors';
 @import '_page-estimativa';

@@ -47,7 +47,7 @@
             padding-right: 55px;
 
             form {
-                input, 
+                input:not([type='submit']), 
                 select {
                     border-radius: 0;
                     border: solid 1px $dark-grey;

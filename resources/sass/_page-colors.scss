@@ -1,6 +1,6 @@
-.page-cores {
-    .form-cores {
-        input[name='cor'] {
+.page-colors {
+    .form-colors {
+        input:not([type='submit']) {
             width: 100%;
             max-width: 200px;
         }
