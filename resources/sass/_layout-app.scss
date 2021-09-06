@@ -41,6 +41,32 @@
             line-height: 1.5;
         }
 
+        .btn-danger,
+        .btn-primary,
+        .btn-secundary,
+        .btn-light {
+            border-radius: 0;
+            border: solid 1px $dark-grey;
+            color: #fff;
+            font-size: 16px;
+            padding: 10px 15px;
+        }
+        
+        .btn-danger {
+            background-color: $red;
+        }
+
+        .btn-primary {
+            background-color: $dark-blue;
+        }
+
+        .btn-secundary {
+            background-color: $blue;
+        }
+
+        .btn-light {
+            background-color: $grey;
+        }
 
         section {
             padding-bottom: 35px;
@@ -68,28 +94,11 @@
 
                 .btn-danger,
                 .btn-primary,
-                .btn-secundary {
-                    border-radius: 0;
-                    border: solid 1px $dark-grey;
-                    color: #fff;
-                    font-size: 16px;
-                    padding: 10px 15px;
-
+                .btn-secundary,
+                .btn-light {
                     &:first-child {
                         margin-right: 20px;
                     }
-                }
-                
-                .btn-danger {
-                    background-color: $red;
-                }
-
-                .btn-primary {
-                    background-color: $dark-blue;
-                }
-
-                .btn-secundary {
-                    background-color: $blue;
                 }
             }
         }
@@ -115,6 +124,17 @@
 
                 &:last-child {
                     margin-bottom: 0;
+                }
+
+                .item {
+                    align-items: center;
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 10px;
+                    
+                    button {
+                        padding: 5px 8px;
+                    }
                 }
             }
 

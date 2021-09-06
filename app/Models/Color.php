@@ -31,7 +31,7 @@ class Color extends Model
      * @var array
      */
     protected $casts = [];
-
+    
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
@@ -66,5 +66,46 @@ class Color extends Model
     public function amountNeededToPaint()
     {
         return $this->walls->sum(fn($wall) => $wall->amountNeededToPaint());
+    }
+
+    /**
+     * Retorna array com os tamanhos de lata recomendados para o usuário comprar
+     *
+     * @return array
+     */
+    public function recommendedGallonsToBuy()
+    {
+        $rest = $this->amountNeededToPaint();
+        $sizes = [18, 3.6, 2.5, 0.5];
+        $gallonsToBy = [
+            '18' => 0, 
+            '3.6' => 0, 
+            '2.5' => 0, 
+            '0.5' => 0
+        ];
+
+        foreach($sizes as $key => $size) {
+            // caso não tenha resto, sair do loop
+            if($rest <= 0)
+                break;
+
+            // verifica quantidade necessário do tamanho atual iterado
+            $amount = ($key == count($sizes)-1) ? ceil($rest/$size) : intval($rest/$size);
+            if($amount > 0) {
+                // varifica quantidade total do tamanho atual não é maior que o tamanho anterior do loop
+                // no último tamanho, a quantidade é arredondada pra cima, portanto pode acontecer do total arredondado ser igual ao tamanho anterior
+                if($amount * $size >= $sizes[$key-1]){
+                    $amount = 1;
+                    $size = $sizes[$key-1];
+                }
+
+                // subtrai tamanho recomendado do resto
+                $rest -= $size * $amount;
+                $gallonsToBy[strval($size)] += $amount;
+            }
+        }
+
+        // remove tamanhos com quantidade zero
+        return array_filter($gallonsToBy);
     }
 }

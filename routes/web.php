@@ -27,7 +27,6 @@ Auth::routes([
 Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/estimativa', [App\Http\Controllers\HomeController::class, 'index'])->name('estimativa');
 
     Route::resource('cores', App\Http\Controllers\ColorController::class)
         ->except(['create', 'show'])
@@ -48,4 +47,6 @@ Route::group(['middleware' => 'auth'], function () {
             'update' => 'rooms.update',
             'destroy' => 'rooms.destroy',
         ]);
+
+    Route::get('/resultado', [App\Http\Controllers\ResultController::class, 'index'])->name('result');
 });

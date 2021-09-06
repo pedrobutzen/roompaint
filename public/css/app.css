@@ -11309,6 +11309,28 @@ textarea.form-control-lg {
   font-size: 14px;
   line-height: 1.5;
 }
+#app main .btn-danger,
+#app main .btn-primary,
+#app main .btn-secundary,
+#app main .btn-light {
+  border-radius: 0;
+  border: solid 1px #707070;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 15px;
+}
+#app main .btn-danger {
+  background-color: #e3342f;
+}
+#app main .btn-primary {
+  background-color: #3d78d0;
+}
+#app main .btn-secundary {
+  background-color: #4e92fa;
+}
+#app main .btn-light {
+  background-color: #b2b2b2;
+}
 #app main section {
   padding-bottom: 35px;
   padding-right: 55px;
@@ -11328,28 +11350,11 @@ textarea.form-control-lg {
 #app main section .btn-wrapper {
   margin-top: 60px;
 }
-#app main section .btn-wrapper .btn-danger,
-#app main section .btn-wrapper .btn-primary,
-#app main section .btn-wrapper .btn-secundary {
-  border-radius: 0;
-  border: solid 1px #707070;
-  color: #fff;
-  font-size: 16px;
-  padding: 10px 15px;
-}
 #app main section .btn-wrapper .btn-danger:first-child,
 #app main section .btn-wrapper .btn-primary:first-child,
-#app main section .btn-wrapper .btn-secundary:first-child {
+#app main section .btn-wrapper .btn-secundary:first-child,
+#app main section .btn-wrapper .btn-light:first-child {
   margin-right: 20px;
-}
-#app main section .btn-wrapper .btn-danger {
-  background-color: #e3342f;
-}
-#app main section .btn-wrapper .btn-primary {
-  background-color: #3d78d0;
-}
-#app main section .btn-wrapper .btn-secundary {
-  background-color: #4e92fa;
 }
 #app main aside {
   border-left: solid 1px #b2b2b2;
@@ -11371,6 +11376,15 @@ textarea.form-control-lg {
 #app main aside .list-items:last-child {
   margin-bottom: 0;
 }
+#app main aside .list-items .item {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+#app main aside .list-items .item button {
+  padding: 5px 8px;
+}
 #app main aside ul {
   list-style: square;
 }
@@ -11382,7 +11396,7 @@ textarea.form-control-lg {
   border-radius: 0;
   bottom: 30px;
   margin-left: 30px;
-  position: absolute;
+  position: fixed;
   right: 30px;
 }
 .flash-alert button {
