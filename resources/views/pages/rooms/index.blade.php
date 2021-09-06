@@ -8,7 +8,7 @@
     <p class="page-info">Agora cadastre todos os cômodos que deseja pintar em sua casa, inserindo as medidas, quantidade de janelas, portas, e a cor desejada de cada parede.<p/>
 
     <div class="row">
-        <section class="col-9">
+        <section class="col-md-9">
             {!! Form::open(['route' => 'rooms.index', 'class' => 'form-rooms row justify-content-center']) !!}
                 @include('pages.rooms.fields')
             {!! Form::close() !!}

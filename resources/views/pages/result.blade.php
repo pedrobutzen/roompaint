@@ -12,7 +12,7 @@
     <p/>
 
     <div class="row">
-        <section class="col-9">
+        <section class="col-md-9">
             <div class="box">
                 <h3>Recomendação</h3>
                 <div class="total-area">Área total para cobertura: {{ $user->getArea() }}m²</div>
@@ -44,7 +44,7 @@
                 {!! Form::close() !!}
             </div>
         </section>
-        <aside class="col-3">
+        <aside class="col-md-3">
             <h3>Variações disponíveis de tamanho</h3>
             <ul>
                 <li>0,5L</li>

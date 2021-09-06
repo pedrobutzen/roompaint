@@ -11289,6 +11289,22 @@ textarea.form-control-lg {
   display: flex;
   flex-direction: column;
 }
+@media (max-width: 991.98px) {
+  #app header > .container {
+    flex-wrap: wrap;
+  }
+  #app header > .container > a {
+    order: 1;
+  }
+  #app header > .container .user-logged {
+    order: 2;
+  }
+  #app header > .container .stepper {
+    margin-top: 20px;
+    order: 3;
+    width: 100%;
+  }
+}
 #app main {
   padding: 40px 0;
 }
@@ -11434,12 +11450,26 @@ textarea.form-control-lg {
 .stepper .step.active .label {
   font-weight: bold;
 }
+@media (max-width: 991.98px) {
+  .stepper .step {
+    flex-direction: column;
+  }
+  .stepper .step .label {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+}
 .stepper .line {
   flex: 1 0 32px;
   min-width: 50px;
   min-height: 1px;
   margin: auto;
   background-color: rgba(0, 0, 0, 0.15);
+}
+@media (max-width: 575.98px) {
+  .stepper .line {
+    min-width: 20px;
+  }
 }
 
 .page-login .form-login input[name=email] {

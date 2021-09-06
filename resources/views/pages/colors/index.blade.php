@@ -8,7 +8,7 @@
     <p class="page-info">Para começar, cadastre todas as cores que deseja pintar seu imóvel.<p/>
 
     <div class="row">
-        <section class="col-9">
+        <section class="col-md-9">
             {!! Form::open(['route' => 'colors.store', 'class' => 'form-colors']) !!}
                 @include('pages.colors.fields')
             {!! Form::close() !!}

@@ -1,4 +1,4 @@
-<aside class="col-3">
+<aside class="col-md-3">
     <h3>Cores cadastradas</h3>
     <div class="list-items">
         @forelse($colors ?? [] as $color)
