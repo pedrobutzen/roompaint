@@ -45,4 +45,5 @@ Route::group(['middleware' => 'auth'], function () {
         ]);
 
     Route::get('/resultado', [App\Http\Controllers\ResultController::class, 'index'])->name('result');
+    Route::post('/reset', [App\Http\Controllers\ResultController::class, 'reset'])->name('reset');
 });

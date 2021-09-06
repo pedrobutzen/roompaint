@@ -34,13 +34,14 @@
                 </div>
             </div>
             
-            <div class="btn-wrapper d-flex justify-content-end">
-                <a href="{{ route('rooms.index') }}" class="btn btn-danger">
-                    Reiniciar processo do zero
-                </a>
-                <a href="{{ route('rooms.index') }}" class="btn btn-primary">
+            <div class="btn-wrapper d-flex justify-content-between">
+                <a href="{{ route('rooms.index') }}" class="btn btn-light">
                     Voltar
                 </a>
+
+                {!! Form::open(['route' => 'reset']) !!}
+                    {!! Form::submit('Reiniciar processo do zero', ['class' => 'btn btn-danger']) !!}
+                {!! Form::close() !!}
             </div>
         </section>
         <aside class="col-3">

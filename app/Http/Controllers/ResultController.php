@@ -34,4 +34,19 @@ class ResultController extends Controller
             'user' => Auth::user()
         ]);
     }
+
+    /**
+     * Resets all user data
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function reset()
+    {
+        $user = Auth::user();
+
+        $user->rooms()->delete();
+        $user->colors()->delete();
+        
+        return redirect()->route('colors.index');
+    }
 }
