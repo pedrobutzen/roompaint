@@ -21,35 +21,28 @@
 </head>
 <body class="{{ $body_class ?? '' }}">
     <div id="app">
-        <nav class="navbar bg-white shadow-sm">
+        <header class="bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a href="{{ url('/') }}">
                     <img src="{{ asset('image/logo.png') }}" alt="Logo da Room Paint">
                 </a>
 
                 <x-stepper class="d-flex" />
 
                 @auth
-                    <div class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
+                    <div class="user-logged">
+                        {{ Auth::user()->email }}
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Sair
                         </a>
-
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </div>
                 @endauth
             </div>
-        </nav>
+        </header>
 
         <main>
             @yield('content')

@@ -16,11 +16,18 @@
                     <label for="input-email-login" class="form-label">E-mail</label>
                     <input type="text" class="form-control  @error('email') is-invalid @enderror" id="input-email-login" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
 
+
                     @error('email')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
                     @enderror
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="check-promocao" name="promocao" checked>
+                    <label class="form-check-label" for="check-promocao">
+                        Desejo receber ofertas e promoções da Room Paint por e-mail
+                    </label>
                 </div>
 
                 <div class="btn-wrapper d-flex justify-content-end">
