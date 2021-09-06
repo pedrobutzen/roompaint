@@ -29,22 +29,18 @@ Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'showLoginFor
 Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('cores', App\Http\Controllers\ColorController::class)
-        ->except(['create', 'show'])
+        ->except(['create', 'show', 'edit', 'update'])
         ->names([
             'index' => 'colors.index',
             'store' => 'colors.store',
-            'edit' => 'colors.edit',
-            'update' => 'colors.update',
             'destroy' => 'colors.destroy',
         ]);
     
     Route::resource('comodos', App\Http\Controllers\RoomController::class)
-        ->except(['create', 'show'])
+        ->except(['create', 'show', 'edit', 'update'])
         ->names([
             'index' => 'rooms.index',
             'store' => 'rooms.store',
-            'edit' => 'rooms.edit',
-            'update' => 'rooms.update',
             'destroy' => 'rooms.destroy',
         ]);
 

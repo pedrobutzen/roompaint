@@ -32,6 +32,14 @@ class Room extends Model
      */
     protected $casts = [];
 
+    public static function boot() {
+        parent::boot();
+
+        static::deleting(function($room) {
+            $room->walls()->delete();
+        });
+    }
+    
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/

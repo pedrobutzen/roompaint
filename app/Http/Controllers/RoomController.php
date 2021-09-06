@@ -24,8 +24,15 @@ class RoomController extends Controller
      */
     public function index()
     {
+        $colors = Auth::user()->colors;
+
+        if($colors->count() == 0) {
+            flash('É obrigatório cadastrar pelo menos uma cor')->error();
+            return redirect()->route('colors.index');
+        }
+
         return view('pages.rooms.index', [
-            'colors' => Auth::user()->colors->pluck('name', 'id'),
+            'colors' => $colors->pluck('name', 'id'),
             'rooms' => Auth::user()->rooms
         ]);
     }
@@ -52,7 +59,7 @@ class RoomController extends Controller
             $rules['height-' . $direction] = [
                 'required', 
                 'numeric', 
-                'min:2.2', 
+                'min:2.2', // o altura da parede deve ser, no mínimo, 30 centímetros maior que a altura da porta.
                 function($attribute, $value, $fail) use ($request) {
                     // pega a direção da parede
                     $direction = explode('-', $attribute)[1];
@@ -80,7 +87,7 @@ class RoomController extends Controller
             $rules['doors-' . $direction] = 'required|integer|min:0';
             $rules['color-' . $direction] = 'required|exists:colors,id';
 
-            // popula array de regras de validação das 4 paredes
+            // popula array de labels das 4 paredes
             $labels['height-' . $direction] = 'altura';
             $labels['width-' . $direction] = 'largura';
             $labels['windows-' . $direction] = 'janela';
@@ -107,5 +114,28 @@ class RoomController extends Controller
 
         return redirect()
             ->route($request->has('next') ? 'result' : 'rooms.index');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $room = Auth::user()->rooms()->find($id);
+
+        if(!$room) {
+            flash('Cômodo não encontrado')->error();
+
+            return redirect()
+                ->route('rooms.index');
+        }
+
+        $room->delete();
+
+        return redirect()
+            ->route('rooms.index');
     }
 }

@@ -234,7 +234,12 @@
     </div>
 </div>
 
-<div class="btn-wrapper d-flex justify-content-end">
-    {!! Form::submit('Salvar e criar nova', ['class' => 'btn btn-secundary']) !!}
-    {!! Form::submit('Avançar', ['class' => 'btn btn-primary', 'name' => 'next']) !!}
+<div class="btn-wrapper d-flex justify-content-between">
+    <a href="{{ route('colors.index') }}" class="btn btn-light">
+        Voltar
+    </a>
+    <div>
+        {!! Form::submit('Salvar e criar nova', ['class' => 'btn btn-secundary']) !!}
+        {!! Form::submit('Avançar', ['class' => 'btn btn-primary', 'name' => 'next']) !!}
+    </div>
 </div>

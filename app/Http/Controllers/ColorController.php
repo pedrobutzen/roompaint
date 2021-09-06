@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -58,61 +59,6 @@ class ColorController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $color = Auth::user()->colors()->find($id);
-
-        if(!$color) {
-            flash('Cor não encontrada')->error();
-
-            return redirect()
-                ->route('colors.index');
-        }
-
-        return view('pages.colors.edit', [
-            'color' => $color,
-            'colors' => Auth::user()->colors
-        ]);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        $color = Auth::user()->colors()->find($id);
-
-        if(!$color) {
-            flash('Cor não encontrada')->error();
-
-            return redirect()
-                ->route('colors.index');
-        }
-
-        $request->validate([
-            'name' => 'required',
-        ], [], [
-            'name' => 'cor',
-        ]);
-
-        $color->update($request->only('name'));
-
-        flash('Cor alterada com sucesso')->success();
-
-        return redirect()
-            ->route($request->has('next') ? 'rooms.index' : 'colors.index');
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
@@ -129,9 +75,8 @@ class ColorController extends Controller
                 ->route('colors.index');
         }
 
+        Room::destroy($color->walls->pluck('room_id'));
         $color->delete();
-
-        flash('Cor alterada com sucesso')->success();
 
         return redirect()
             ->route('colors.index');
