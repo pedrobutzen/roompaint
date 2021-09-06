@@ -11276,6 +11276,11 @@ textarea.form-control-lg {
 #app {
   color: #707070;
 }
+#app .navbar .user-logged {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+}
 #app main {
   padding: 40px 0;
 }
@@ -11294,7 +11299,7 @@ textarea.form-control-lg {
 }
 #app main p {
   font-size: 14px;
-  line-height: 1.3;
+  line-height: 1.5;
 }
 #app main section {
   padding-bottom: 35px;
@@ -11309,25 +11314,33 @@ textarea.form-control-lg {
   padding-bottom: 8px;
   padding-top: 7px;
 }
-#app main section form .btn-wrapper {
+#app main section form .form-group {
+  margin-bottom: 20px;
+}
+#app main section .btn-wrapper {
   margin-top: 60px;
 }
-#app main section form .btn-wrapper .btn-primary,
-#app main section form .btn-wrapper .btn-secundary {
+#app main section .btn-wrapper .btn-danger,
+#app main section .btn-wrapper .btn-primary,
+#app main section .btn-wrapper .btn-secundary {
   border-radius: 0;
   border: solid 1px #707070;
   color: #fff;
   font-size: 16px;
   padding: 10px 15px;
 }
-#app main section form .btn-wrapper .btn-primary:first-child,
-#app main section form .btn-wrapper .btn-secundary:first-child {
+#app main section .btn-wrapper .btn-danger:first-child,
+#app main section .btn-wrapper .btn-primary:first-child,
+#app main section .btn-wrapper .btn-secundary:first-child {
   margin-right: 20px;
 }
-#app main section form .btn-wrapper .btn-primary {
+#app main section .btn-wrapper .btn-danger {
+  background-color: #e3342f;
+}
+#app main section .btn-wrapper .btn-primary {
   background-color: #3d78d0;
 }
-#app main section form .btn-wrapper .btn-secundary {
+#app main section .btn-wrapper .btn-secundary {
   background-color: #4e92fa;
 }
 #app main aside {
@@ -11349,6 +11362,12 @@ textarea.form-control-lg {
 }
 #app main aside .list-items:last-child {
   margin-bottom: 0;
+}
+#app main aside ul {
+  list-style: square;
+}
+#app main aside ul li {
+  margin-bottom: 5px;
 }
 
 .stepper .step {
@@ -11400,9 +11419,6 @@ textarea.form-control-lg {
   max-width: 200px;
 }
 
-.page-comodos .form-comodos .form-group {
-  margin-bottom: 20px;
-}
 .page-comodos .form-comodos .middle {
   margin-top: 15px;
   margin-bottom: 35px;
@@ -11418,4 +11434,42 @@ textarea.form-control-lg {
 .page-comodos .form-comodos input[name=cor] {
   width: 100%;
   max-width: 200px;
+}
+
+.page-estimativa .box {
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  padding: 20px;
+}
+.page-estimativa .box h3, .page-estimativa .box .h3 {
+  margin-bottom: 15px;
+}
+.page-estimativa .box .total-area {
+  margin-bottom: 25px;
+}
+.page-estimativa .box .color {
+  margin-bottom: 35px;
+}
+.page-estimativa .box .color h4, .page-estimativa .box .color .h4 {
+  font-size: 16px;
+  font-weight: bold;
+}
+.page-estimativa .box .color .estimated {
+  font-size: 16px;
+  margin-left: 15px;
+}
+.page-estimativa .box .color .estimated div:first-child {
+  margin-bottom: 25px;
+}
+.page-estimativa .box .color .estimated ul {
+  list-style: none;
+  padding-left: 0;
+}
+.page-estimativa .box .color .estimated ul li {
+  margin-bottom: 5px;
+}
+.page-estimativa .box .color .estimated ul li:first-child {
+  font-weight: bold;
+}
+.page-estimativa .box .color:last-child {
+  margin-bottom: 0;
 }
