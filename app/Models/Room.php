@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Color extends Model
+class Room extends Model
 {
     use HasFactory;
 
@@ -41,7 +41,7 @@ class Color extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
      **/
     public function walls()
     {
@@ -49,7 +49,7 @@ class Color extends Model
     }
 
     /**
-     * Retorna a área pintável de todas as peredes da cor
+     * Retorna a área pintável de todas as peredes do cômodo
      *
      * @return float
      */
@@ -59,7 +59,7 @@ class Color extends Model
     }
 
     /**
-     * Retorna a quantidade em litros necessária para pintar toda a área da cor
+     * Retorna a quantidade em litros necessária para pintar todas as paredes o cômodo
      *
      * @return float
      */

@@ -49,4 +49,32 @@ class User extends Authenticatable
     {
         return $this->hasMany(\App\Models\Color::class);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function rooms()
+    {
+        return $this->hasMany(\App\Models\Room::class);
+    }
+
+    /**
+     * Retorna a área pintável de todas as peredes do imóvel do usuário
+     *
+     * @return float
+     */
+    public function getArea()
+    {
+        return $this->rooms->sum(fn($room) => $room->getArea());
+    }
+
+    /**
+     * Retorna a quantidade em litros necessária para todo o imóvel do usuário
+     *
+     * @return float
+     */
+    public function amountNeededToPaint()
+    {
+        return $this->rooms->sum(fn($room) => $room->amountNeededToPaint());
+    }
 }

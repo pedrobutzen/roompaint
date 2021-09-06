@@ -27,7 +27,6 @@ Auth::routes([
 Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/comodos', [App\Http\Controllers\HomeController::class, 'index'])->name('comodos');
     Route::get('/estimativa', [App\Http\Controllers\HomeController::class, 'index'])->name('estimativa');
 
     Route::resource('cores', App\Http\Controllers\ColorController::class)
@@ -38,5 +37,15 @@ Route::group(['middleware' => 'auth'], function () {
             'edit' => 'colors.edit',
             'update' => 'colors.update',
             'destroy' => 'colors.destroy',
+        ]);
+    
+    Route::resource('comodos', App\Http\Controllers\RoomController::class)
+        ->except(['create', 'show'])
+        ->names([
+            'index' => 'rooms.index',
+            'store' => 'rooms.store',
+            'edit' => 'rooms.edit',
+            'update' => 'rooms.update',
+            'destroy' => 'rooms.destroy',
         ]);
 });
